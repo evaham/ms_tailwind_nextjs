@@ -21,119 +21,124 @@ export default function s() {
     ]
 
     return (
-        <div className="sample block h-full bg-slate-100">
-            <div>
-                <div className="sample__name flex items-center justify-center sticky top-0 p-4 bg-blue-900 text-white z-50">
-                    <span className="js_fontsize flex-1 font-bold text-2xl text-center">투게더POS</span>
-                    <a onclick="location.href='tel:1577-4550'" className="sample__tel flex justify-center w-8 h-8 ml-auto p-1 rounded-full bg-white">
-                        <img src="http://tdc-api-dev-3.togethers.kr:8082/2ms/img/ico_call.png" alt="phone" />
-                    </a>
+        <div className="sample absolute top-0 right-0 bottom-0 left-0 flex flex-col bg-slate-100 overflow-hidden">
+            <div className="">
+                <div>
+                    <div className="sample__name flex items-center justify-center sticky top-0 p-4 bg-blue-900 text-white">
+                        <span className="js_fontsize flex-1 font-bold text-2xl text-center">투게더POS</span>
+                        <a onclick="location.href='tel:1577-4550'" className="sample__tel flex justify-center w-8 h-8 ml-auto p-1 rounded-full bg-white">
+                            <img src="http://tdc-api-dev-3.togethers.kr:8082/2ms/img/ico_call.png" alt="phone" />
+                        </a>
+                    </div>
+                    <div className="sample__tit p-3 text-center bg-blue-50 text-slate-800">
+                        <span className="text-xl">지현테스트</span>
+                        <span className="sample__date popStartDate"></span>
+                        <span className="popExDate"></span>
+                        <input type="hidden" className="isDate" value="0" />
+                    </div>
                 </div>
-                <div className="sample__tit p-3 text-center bg-blue-50 text-slate-800">
-                    <span className="text-xl">지현테스트</span>
-                    <span className="sample__date popStartDate"></span>
-                    <span className="popExDate"></span>
-                    <input type="hidden" className="isDate" value="0" />
-                </div>
-            </div>
 
-            <div className="swiper mySwiper swiper-initialized swiper-horizontal swiper-free-mode swiper-backface-hidden bg-white">
-                <div className="scroll_btn swiper-wrapper flex" id="swiper-wrapper-f93484d181ebd2c10" aria-live="polite">
-                    {items.map((item) => (
-                        <div key={item.id} className="btn_comm btn_0 swiper-slide swiper-slide-active" role="group" aria-label="1 / 7">{item.title}</div>
-                    ))}
-                </div>
-                <span className="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-            </div>
-
-
-            <div>
-                <div className="goods mt-2">
-                    <ul id="js_changeList" className="goods__list goods__list--type2 grid grid-cols-2 gap-px mx-1 text-slate-800">
-                        {goods.map((good) =>(
-                            <li key={good.id}>
-                                <div className="goods__card overflow-hidden flex flex-col border rounded-xl bg-white">
-                                    <div className="goods__imgbox overflow-hidden flex items-center justify-center w-full h-36 p-1">
-                                        <img className="max-wfull max-h-full" src={good.imgurl} alt="goods-image" />
-                                    </div>
-                                    <div className="goods__info flex flex-col items-center px-1 py-2">
-                                        <div className="goods__delprice previewEtc1 text-blue-600 text-sm font-bold">{good.preview}</div>
-                                        <div className="goods__price text-red-600 text-2xl font-extrabold">41,650,999</div>
-                                        <div className="goods__name w-full h-10 mt-2 text-md text-center text-slate-700 text-ellipsis font-bold leading-5 line-clamp-2">{good.name}</div>
-                                    </div>
-                                </div>
-                            </li>
+                <div className="swiper mySwiper swiper-initialized swiper-horizontal swiper-free-mode swiper-backface-hidden">
+                    <div className="scroll_btn swiper-wrapper flex" id="swiper-wrapper-f93484d181ebd2c10" aria-live="polite">
+                        {items.map((item) => (
+                            <div key={item.id} className="btn_comm btn_0 swiper-slide swiper-slide-active" role="group" aria-label="1 / 7">{item.title}</div>
                         ))}
-                    </ul>
-                    <input type="hidden" className="templateType" value="1" />
+                    </div>
+                    <span className="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                </div>
+                
+                {/* 리스트 스크롤영역 */}
+                <div className="overflow-y-scroll">
+                    <div>
+                        <div className="goods mt-2">
+                            <ul id="js_changeList" className="goods__list goods__list--type2 grid grid-cols-2 gap-px mx-1 text-slate-800">
+                                {goods.map((good) =>(
+                                    <li key={good.id}>
+                                        <div className="goods__card overflow-hidden flex flex-col border rounded-xl bg-white">
+                                            <div className="goods__imgbox overflow-hidden flex items-center justify-center w-full h-36 p-1">
+                                                <img className="max-wfull max-h-full" src={good.imgurl} alt="goods-image" />
+                                            </div>
+                                            <div className="goods__info flex flex-col items-center px-1 py-2">
+                                                <div className="goods__delprice previewEtc1 text-blue-600 text-sm font-bold">{good.preview}</div>
+                                                <div className="goods__price text-red-600 text-2xl font-extrabold">41,650,999</div>
+                                                <div className="goods__name w-full h-10 mt-2 text-md text-center text-slate-700 text-ellipsis font-bold leading-5 line-clamp-2">{good.name}</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                            <input type="hidden" className="templateType" value="1" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className="goods mt-2">
+                            <ul id="js_changeList" className="goods__list goods__list--type2 grid grid-cols-3 gap-px mx-1 text-slate-800">
+                                {goods.map((good) =>(
+                                    <li key={good.id}>
+                                        <div className="goods__card overflow-hidden flex flex-col border rounded-xl bg-white">
+                                            <div className="goods__imgbox overflow-hidden flex items-center justify-center w-full h-36 p-1">
+                                                <img className="max-wfull max-h-full" src={good.imgurl} alt="goods-image" />
+                                            </div>
+                                            <div className="goods__info flex flex-col items-center px-1 py-2">
+                                                <div className="goods__delprice previewEtc1 text-blue-600 text-sm font-bold">{good.preview}</div>
+                                                <div className="goods__price text-red-600 text-2xl font-extrabold">41,650,999</div>
+                                                <div className="goods__name w-full h-10 mt-2 text-md text-center text-slate-700 text-ellipsis font-bold leading-5 line-clamp-2">{good.name}</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                            <input type="hidden" className="templateType" value="1" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className="goods mt-2">
+                            <ul id="js_changeList" className="goods__list goods__list--type2 grid grid-cols-4 gap-px mx-1 text-slate-800">
+                                {goods.map((good) =>(
+                                    <li key={good.id}>
+                                        <div className="goods__card overflow-hidden flex flex-col border rounded-xl bg-white">
+                                            <div className="goods__imgbox overflow-hidden flex items-center justify-center w-full h-36 p-1">
+                                                <img className="max-wfull max-h-full" src={good.imgurl} alt="goods-image" />
+                                            </div>
+                                            <div className="goods__info flex flex-col items-center px-1 py-2">
+                                                <div className="goods__delprice previewEtc1 text-blue-600 text-sm font-bold">{good.preview}</div>
+                                                <div className="goods__price text-red-600 text-2xl font-extrabold">41,650,999</div>
+                                                <div className="goods__name w-full h-10 mt-2 text-md text-center text-slate-700 text-ellipsis font-bold leading-5 line-clamp-2">입니다사과입니다</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                            <input type="hidden" className="templateType" value="1" />
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div className="goods mt-2">
+                            <ul id="js_changeList" className="goods__list goods__list--type2 grid gap-px mx-1 text-slate-800">
+                                {goods.map((good) =>(
+                                    <li key={good.id}>
+                                        <div className="goods__card overflow-hidden flex flex-row border rounded-xl bg-white">
+                                            <div className="goods__imgbox overflow-hidden flex items-center justify-center w-full h-36 p-1" style={{display:'none'}}>
+                                                <img className="max-wfull max-h-full" src={good.imgurl} alt="goods-image" />
+                                            </div>
+                                            <div className="goods__info flex flex-col items-center px-1 py-1">
+                                                <div className="goods__name w-full h-10 mt-1 text-md text-center text-slate-700 text-ellipsis font-bold leading-5 line-clamp-2">{good.name}</div>
+                                                <div className="goods__delprice previewEtc1 inline-block text-blue-600 text-sm font-bold">{good.preview}</div>
+                                                <div className="goods__price inline text-red-600 text-2xl font-extrabold">41,650,999</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                            <input type="hidden" className="templateType" value="1" />
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div>
-                <div className="goods mt-2">
-                    <ul id="js_changeList" className="goods__list goods__list--type2 grid grid-cols-3 gap-px mx-1 text-slate-800">
-                        {goods.map((good) =>(
-                            <li key={good.id}>
-                                <div className="goods__card overflow-hidden flex flex-col border rounded-xl bg-white">
-                                    <div className="goods__imgbox overflow-hidden flex items-center justify-center w-full h-36 p-1">
-                                        <img className="max-wfull max-h-full" src={good.imgurl} alt="goods-image" />
-                                    </div>
-                                    <div className="goods__info flex flex-col items-center px-1 py-2">
-                                        <div className="goods__delprice previewEtc1 text-blue-600 text-sm font-bold">{good.preview}</div>
-                                        <div className="goods__price text-red-600 text-2xl font-extrabold">41,650,999</div>
-                                        <div className="goods__name w-full h-10 mt-2 text-md text-center text-slate-700 text-ellipsis font-bold leading-5 line-clamp-2">{good.name}</div>
-                                    </div>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                    <input type="hidden" className="templateType" value="1" />
-                </div>
-            </div>
-
-            <div>
-                <div className="goods mt-2">
-                    <ul id="js_changeList" className="goods__list goods__list--type2 grid grid-cols-4 gap-px mx-1 text-slate-800">
-                        {goods.map((good) =>(
-                            <li key={good.id}>
-                                <div className="goods__card overflow-hidden flex flex-col border rounded-xl bg-white">
-                                    <div className="goods__imgbox overflow-hidden flex items-center justify-center w-full h-36 p-1">
-                                        <img className="max-wfull max-h-full" src={good.imgurl} alt="goods-image" />
-                                    </div>
-                                    <div className="goods__info flex flex-col items-center px-1 py-2">
-                                        <div className="goods__delprice previewEtc1 text-blue-600 text-sm font-bold">{good.preview}</div>
-                                        <div className="goods__price text-red-600 text-2xl font-extrabold">41,650,999</div>
-                                        <div className="goods__name w-full h-10 mt-2 text-md text-center text-slate-700 text-ellipsis font-bold leading-5 line-clamp-2">입니다사과입니다</div>
-                                    </div>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                    <input type="hidden" className="templateType" value="1" />
-                </div>
-            </div>
-
-            <div>
-                <div className="goods mt-2">
-                    <ul id="js_changeList" className="goods__list goods__list--type2 grid gap-px mx-1 text-slate-800">
-                        {goods.map((good) =>(
-                            <li key={good.id}>
-                                <div className="goods__card overflow-hidden flex flex-row border rounded-xl bg-white">
-                                    <div className="goods__imgbox overflow-hidden flex items-center justify-center w-full h-36 p-1" style={{display:'none'}}>
-                                        <img className="max-wfull max-h-full" src={good.imgurl} alt="goods-image" />
-                                    </div>
-                                    <div className="goods__info flex flex-col items-center px-1 py-2">
-                                        <div className="goods__name w-full h-10 mt-2 text-md text-center text-slate-700 text-ellipsis font-bold leading-5 line-clamp-2">{good.name}</div>
-                                        <div className="goods__delprice previewEtc1 text-blue-600 text-sm font-bold">{good.preview}</div>
-                                        <div className="goods__price text-red-600 text-2xl font-extrabold">41,650,999</div>
-                                    </div>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                    <input type="hidden" className="templateType" value="1" />
-                </div>
-            </div>
             <div className="wrap_stickyfooter sticky bottom-1">
                 <a className="btn_movecoupon slide-in flex w-44 h-auto ml-auto p-3 rounded-tl-full rounded-bl-full text-white bg-rose-500 shadow-md">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" fill="#fff" x="0px" y="0px" viewBox="0 0 24 24" style={{ marginRight: '5px' }}>
@@ -141,13 +146,39 @@ export default function s() {
                     </svg>
                     <span className="font-bold leading-4">할인쿠폰 도착!<br /><span className="font-normal text-xs">바로 사용 가능</span></span>
                 </a>
-                <a className="scroll_top btn_movetop flex flex-col items-center justify-center bg-slate-700 w-16 h-16 my-5 ml-auto rounded-full bg-opacity-90 ">
+                <a className="scroll_top btn_movetop flex flex-col items-center justify-center bg-black w-16 h-16 my-5 ml-auto rounded-full bg-opacity-70 ">
                     <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#fff">
                         <path d="M160-760v-80h640v80H160Zm280 640v-408L336-424l-56-56 200-200 200 200-56 56-104-104v408h-80Z"></path>
                     </svg>
                     <span className="text-xs text-slate-200 tracking-tighter">맨위로</span>
                 </a>
             </div>
+
+
+            <div className="layer layer__wrap absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center">
+                <div className="layer__bg absolute top-0 right-0 bottom-0 left-0 bg-black bg-opacity-50 "></div>
+                <div className="goods layer__box m-5 rounded-md bg-white z-10">
+                    <ul id="js_changeList" class="goods__list">
+                        <li>
+                            <div class="goods__card p-3">
+                                <div class="goods__imgbox">
+                                    <img class="layer__image" src="https://s3.ap-northeast-2.amazonaws.com/products.key/main/빙그레_모짜렐라피자치즈-240g_8801104672528_1.png" />
+                                </div>
+                                <div class="goods__info">
+                                    <div class="goods__delPrice previewEtc1">상품소진시@@@-</div>
+                                    <div class="goods__price">12,009,999</div>
+                                    <div class="layer__goods__name">@@빙그레)모짜렐라피자치즈240g 기획상품</div>
+                                </div>
+                                <div>
+                                    <p>한번 더 터치 시 닫습니다.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
+
     )
 }
