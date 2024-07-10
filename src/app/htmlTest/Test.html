@@ -1,0 +1,1370 @@
+<html><head><script type="text/javascript">
+    var ctx = '/2ms';
+    </script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/2ms/js/jquery.form.min.js"></script>
+    <script type="text/javascript" src="/2ms/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/2ms/toastui/editor/latest/toastui-editor-all.min.js"></script>
+    <link type="stylesheet" href="/2ms/toastui/editor/latest/toastui-editor.min.css">
+    
+    <link rel="stylesheet" href="/2ms/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="/2ms/jquery-ui/jquery-ui.theme.min.css">
+    
+    <link rel="stylesheet" href="/2ms/css/page_weblink.css?20240701">
+    
+    
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쿠폰함</title>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <style>
+    
+      input[type=color]{padding:0; border:none; width:30px; height:35px; background:none;}
+      .preview {border-bottom: 2px dashed;}
+      .menubar > li.active a.menu{color:#1e60b2}
+      .menubar > li > span {font-size:17px; font-weight:700;}
+      #sessionExtentsion {font-size: 12px; vertical-align:bottom; width:40px; margin-left:3px; }
+      .btn_comm--gray:focus{background:#f0f4f7}
+        
+    </style>
+    <style>
+    
+      .my_image{margin-top:35px; width:130px; border-radius:2px; letter-spacing:0px;}
+      .image_cloud{width:130px;}
+      .goods__pre h1{font-size:35px; line-height:40px;}
+      .goods__pre h2{font-size:30px; line-height:40px;}
+      .goods__pre h3{font-size:25px; line-height:40px;}
+      .goods__pre h4{font-size:20px; line-height:30px;}
+      .goods__pre h5{font-size:18px; line-height:30px;}
+      .goods__pre h6{font-size:16px; line-height:30px;}
+      pre{font-family:auto;}
+      .sample__name{ padding: 16px 8px; font-weight: bold; color:#fff; text-align: center; font-size:1.1em;}
+      .chgNum{width:180px; }
+      .chgNum:read-only{background:#d9d9d9; border: 1px solid #aaa; border-radius: 2px; color:#7f7f7f;}
+      .ern-leaflet-swiper-menu {
+        position: relative;
+        border-bottom: 1px solid var(--line-divide);
+        margin-top: 0;
+        padding: 0 48px 0 16px!important;
+      }
+      .box-toggle-block {
+        position: relative;
+        padding-top: 10px;
+        height: 40px;
+        transition: .1s linear;
+        background: var(--background-white);
+        width: 100%;
+        z-index: 1;
+      }
+      .pdtDisPrice{font-weight:bold}
+      .pdtName{color:#21409a}
+      
+        .swiper {background: #fff; border-bottom: 1px solid #c1c1c1;}
+        .swiper-slide {width: auto; /* 슬라이드 너비 설정 */}
+        
+        /* bold적용x */
+      /*.scroll_btn .btn_comm { padding: 6px 15px; border: 1px solid #ebecec; background: #fff; border-radius: 20px; margin-bottom: 4px; margin-top:4px; color: #636363;}*/
+    
+        .scroll_btn .btn_comm { padding: 6px 15px; border: 1px solid #636363; background: #fff; border-radius: 20px; margin-bottom: 4px; margin-top:4px; color: #636363; font-weight:bold;}
+    
+        .scroll_btn .btn_comm:active { margin-bottom: 4px; margin-top:4px; border: 1px solid #21409a; border-radius: 20px; background: #21409a; font-weight: bold; color: #fff; box-shadow: 0 1px 3px 0 rgba(0,0,0,.06); }
+      .scroll_btn .btn_comm:hover{margin-bottom: 4px; margin-top:4px; border: 1px solid #21409a; border-radius: 20px; background: #21409a; font-weight: bold; color: #fff; box-shadow: 0 1px 3px 0 rgba(0,0,0,.06); }
+    
+        .cnList .btn_comm { margin-right: 8px; margin-bottom: 4px; border: 1px solid #636363; background: #fff; border-radius: 20px; color: #636363; font-weight:bold;}
+        .cnList .btn_comm:hover { border: 1px solid #21409a; border-radius: 20px; background: #21409a; font-weight: bold; color: #fff; box-shadow: 0 1px 3px 0 rgba(0,0,0,.06); }
+        .radio_comm input[type=radio] {margin-left: 4px; margin-right: 4px; padding:4px;}
+      .radio_comm {margin:3px;}
+      .layout__sample {scroll-padding-top: 175px;}
+      .textTbl thead tr td.emp::before {
+        content: "*";
+        display: inline-block;
+        width: 8px;
+        margin-left: -8px;
+        color: red;
+      }
+      .form-control:focus {
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+      }
+      .form-control {
+          display: block;
+          height: 34px;
+          padding: 6px 12px;
+          font-size: 14px;
+          line-height: 1.42857143;
+          color: #555;
+          background-color: #fff;
+          background-image: none;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+          -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+          -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+      }
+      .search__checkbox {
+        display: inline-block;
+        padding: 3px 5px;
+        line-height: 18px; }
+        .search__checkbox > label {
+        vertical-align: top;
+        cursor: pointer; }
+        .search__checkbox > input {
+        vertical-align: top;
+        width: 15px;
+        height: 15px;
+        margin-top: 3px; }
+        .search__checkbox:checked{accent-color:#228be6}
+    
+    </style>
+    <style>
+      /* 토글버튼 */
+      .togglebox {display: inline-flex; align-items: center;}
+      .toggle_btn {position: relative; display: inline-flex; align-items: center; margin-left: 5px; cursor: pointer;}
+      .toggle_btn span:first-child {position: absolute; left: 5px; z-index: 1; font-size: 10px; letter-spacing: -1px; color: #333;}
+      .toggle_btn span:nth-child(2) {position: absolute; right: 5px; z-index: 1; font-size: 10px; letter-spacing: -1px; color: #fff;}
+      .toggle_btn [type="checkbox"] {appearance: none; position: relative; border-radius: 20px; width: 46px; height: 24px; background: rgb(156 163 175);}
+      .toggle_btn [type="checkbox"]::before {content: ""; position: absolute; left: 0; top: 0px; width: 24px; height: 24px;border-radius: 50%; background-color: #fdfdfd; transform: scale(0.8); transition: left 150ms linear; z-index: 2;}
+      .toggle_btn [type="checkbox"]:checked {background: rgb(165, 188, 231);}
+      .toggle_btn [type="checkbox"]:checked::before {left: 22px; background-color:#2669cf;}
+    
+      /* 쿠폰 탭 */
+      .coupons__tab {display: flex; background: #fff;  font-size: 16px; letter-spacing: -1px;}
+      .coupons__tab a {flex: 1; display: flex; align-items: center; justify-content: center; padding: 10px; color: rgb(148 , 163, 184);}
+      .coupons__tab a.active {border-bottom: 3px solid #555; color: #333;}
+    
+    
+      /* coupon -----------------------------------------*/
+      .coupons {position: relative; width: 100%;}
+      .coupons::before { content: " "; display: table;}
+      .coupons::after {content: " "; display: table; clear: both;}
+      .coupons__list li {float: left; display: block; width: 50%; padding: 2px; margin-bottom: 3px;}
+      .coupons__btngroup { display: flex; }
+      .coupons__box { flex: 1; display: flex; margin: 7px 0; padding: 7px; position: relative; border-radius: 10px; overflow: hidden;}
+    
+      .coupons__mainbtn {display: flex; align-items: center; justify-content: center; border-radius: 5px; padding: 8px; border: 1px solid rgb(253 164 175); background-color: rgb(255, 228, 230);}
+      .coupons__mainbtn span {margin-left: 5px; font-weight: 600; color: #333;}
+    
+      .coupons__card { overflow: hidden; position: relative; display: flex; flex-direction: column; padding: 0; border: 1px solid #d1d1d6; border-radius: 10px; background: #fff;}
+      .coupons__darkbg {position: absolute; top:0; right: 0; bottom: 0; left: 0; display: flex; background:rgba(15, 23, 42,.5);}
+      .coupons__darkbg p {flex: 1; display: flex; align-items: center; justify-content: center; padding: 10px; text-align: center; color: #fff; font-size: 16px;font-weight:600;}
+      .coupons__header {display: flex; align-items: center; padding: 7px; border-bottom: 1px solid rgb(248 250 252); background: rgb(248 250 252);}
+      .coupons__link {display: flex ; align-items: center; margin-left: auto;}
+      .coupons__link span {color: rgb(100 116 139); letter-spacing: -1px; line-height: 1;}
+      .coupons__link svg {margin-left: 6px;}
+      .coupons__body {display: flex; padding: 3px 10px; border-radius: 60px;}
+      .coupons__imgbox {display: block; position: relative; overflow: hidden; width: 36%; height: 130px; background: #f8f9fa;line-height: 130px;text-align: center;}
+      .coupons__imgbox img {display: inline-block;max-width: 100%;width: auto;max-height: 100%;height: auto;margin-top: -1px;vertical-align: middle;}
+      .coupons__info {flex: 1; display: flex; flex-direction: column; margin-left: 6px; }
+      .coupons__name {position: relative;overflow: hidden;/*height: 42px;*/margin: 5px 0 0;font-size: 15px;font-weight: 600;text-overflow: ellipsis;word-wrap: break-word;line-height: 1.2;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+      .coupons__name > span {position: absolute;bottom: 0;left: 0;width: 100%;text-align: center;}
+      .coupons__date {color: #495057; margin-top: auto;}
+      .coupons__price {font-size: 16px; color:#fa5252;}
+      .coupons__price em {font-size: 41px;font-weight: 800;font-style: normal;color: #fa5252;letter-spacing: -0.7px;}
+    
+      /* 찜하기 */
+      .zzimbtn {display: flex; align-items: center; /*background: rgb(226 232 240);*/ padding: 3px 10px; border-radius: 60px; color: rgb(244, 63, 94); border:1px solid rgb(244, 63, 94);}
+      .zzimbtn svg {width: 18px; height: 18px; margin-right: 2px;}
+      .zzimbtn svg path {fill:/*rgb(148, 163, 184)*/rgb(244, 63, 94);}
+      .zzimbtn span {color:/*rgb(148, 163, 184)*/rgb(244, 63, 94);letter-spacing: -1px;}
+      .zzimbtn.active {background: rgb(244, 63, 94)}
+      .zzimbtn.active .empty-heart{display: none;}
+      .zzimbtn .filled-heart {display: none;}
+      .zzimbtn.active .filled-heart {display: inline-block;}
+      .zzimbtn.active svg path{fill: rgb(255, 255, 255);}
+      .zzimbtn.active span{color: rgb(255, 255, 255);}
+      
+      .modalbox__zzimbtn.active .empty-heart{display: none;}
+      .modalbox__zzimbtn .filled-heart {display: none;}
+      .modalbox__zzimbtn.active .filled-heart {display: inline-block;}
+    
+      /* 모달팝업 */
+      .modalbox { position: absolute; top: 135px; right: 0; left: 0; bottom: 0; padding: 10px; display: flex; flex-direction: column; }
+      .modalbox__info {display: block; padding: 120px 20px; text-align: center; color: #fff; z-index: 1;}
+      .modalbox__bg {position: absolute; top: -20px; right: 0; left: 0; bottom: 0; background: rgba(15, 23, 42,.8);}
+      .modalbox__panel {display: block; position: relative; padding: 10px; border-radius: 6px; background: #fff; z-index: 1;}
+      .modalbox__tit { margin: 10px auto; text-align: center; font-size: 20px; font-weight: 600; }
+      .modalbox__dl {margin-top: 16px;}
+      .modalbox__dl dt {color: rgb(71, 85, 105);}
+      .modalbox__dl dd {font-size: 16px; font-weight: 600; line-height: 1.2;}
+      .modalbox__txt {font-size: 16px; font-weight: 600;}
+      .modalbox__group {display: flex; margin-top: 20px;}
+      .modalbox__zzimbtn { display: flex; align-items: center; justify-content: center; padding:6px 10px; border-radius: 5px; border:1px solid rgb(244, 63, 94); color: rgb(244, 63, 94); }
+      .modalbox__zzimbtn svg {width: 18px; height: 18px; margin-right: 2px;}
+      .modalbox__zzimbtn svg path {fill: rgb(244, 63, 94);}
+      .modalbox__btn { flex: 1; display: flex; align-items: center; justify-content: center; padding: 6px 10px; border-radius: 5px; background: rgb(244, 63, 94); color: #fff; font-weight: 600;}
+      .modalbox__close { position: absolute; top: 4px; right: 4px; }
+      .modalbox__guide {margin-top: 20px; border-top: 1px solid #ddd;}
+      .modalbox__guide p { margin-top: 20px; font-weight: 600; }
+      .modalbox__guide ul { margin-top: 20px;}
+      .modalbox__guide ul li {margin-top: 10px; margin-left: 20px; list-style:circle; line-height: 1.2; }
+       /* 하단 sticky 버튼그룹 */
+      .wrap_stickyfooter {display: block; position: sticky; bottom: 0;}
+      .btn_movetop {display: flex; flex-direction: column; align-items: center; justify-content: center; width: 60px; height:60px; margin:0 10px 10px auto;  font-size: 11px; font-weight: normal; line-height: 1; letter-spacing: -1px; border-radius: 30px; background: rgba(0, 0, 0, .7); color: #fff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .3)}
+      .btn_movetop:hover {background: #333; text-decoration: none;}
+      .btn_movecoupon { display: flex; width: 170px; height: auto; margin: 10px 0 10px auto; padding: 10px; border-radius: 50px; border-top-right-radius: 0; border-bottom-right-radius: 0; text-align: left;  color: #fff; background: #F43F5E; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .3)}
+      .btn_movecoupon:hover {text-decoration: none;}
+      .btn_movecoupon > span {font-size: 16px; font-weight: 600; line-height: 1.2; letter-spacing: -1px;}
+      .btn_movecoupon > span > span {font-size: 12px; font-weight: normal; color: #ffebeb;}
+      .btn_couponusebox { margin-top: 15px; padding: 6px; background: #fff; box-shadow: 0 -4px 20px -6px rgba(0, 0, 0, .3) }
+      .btn_couponuse {display: flex; align-items: center; justify-content: center; border-radius: 5px; padding: 12px 8px; font-size: 16px; font-weight: 600; letter-spacing: -1px; background-color: rgb(244, 63, 94); color: #fff;}
+      .btn_couponuse:hover {text-decoration: none;}
+    </style>
+    <style>
+            .toast {
+                visibility: hidden; /* 숨김 상태 */
+                align-self: center;
+                background-color: #333;
+                color: #fff;
+                text-align: center;
+                border-radius: 2px;
+                padding: 16px;
+                position: fixed;
+                z-index: 1;
+                bottom: 30px;
+                font-size: 17px;
+            }
+    
+            .toast.show {
+                visibility: visible; /* 표시 상태 */
+                -webkit-animation: fadein 0.5s, fadeout 0.5s 1.5s;
+                animation: fadein 0.5s, fadeout 0.5s 1.5s;
+            }
+    
+            @-webkit-keyframes fadein {
+                from {bottom: 0; opacity: 0;}
+                to {bottom: 30px; opacity: 1;}
+            }
+    
+            @keyframes fadein {
+                from {bottom: 0; opacity: 0;}
+                to {bottom: 30px; opacity: 1;}
+            }
+    
+            @-webkit-keyframes fadeout {
+                from {bottom: 30px; opacity: 1;}
+                to {bottom: 0; opacity: 0;}
+            }
+    
+            @keyframes fadeout {
+                from {bottom: 30px; opacity: 1;}
+                to {bottom: 0; opacity: 0;}
+            }
+            .save.disabled {background: lightgray; border-color: lightgray;}
+    </style>
+    </head>
+    <body style="height:100%">
+          <!-- 미리보기 -->
+          <div class="sample" style="display: flex; flex-direction: column;position: relative;">
+              <div style="position: sticky;z-index: 999;top: 0;">
+                <div class="sample__name clearfix">
+                      <span class="js_fontsize" style="font-size: 1.4em;">투게더포스 테섭 영수증상호</span>
+                    <a onclick="location.href='tel:02-1577-4550   '" class="sample__tel">
+                        <img src="/2ms/img/ico_call.png">
+                    </a>
+                </div>
+                  <!--모바일뷰-->
+                <div class="sample__tit">
+                    <div onclick="goBack()" style="float: left; margin-left: 10px; position: absolute;">
+                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                          <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"></path>
+                      </svg>            	
+                    </div>
+                  <span>쿠폰함</span>
+                </div>
+            </div>
+              
+                
+                   <span class="panel__tit">사용가능 쿠폰</span>
+                   <ul id="js_changeList" class="coupons__list">
+                       
+                           <li style="width: 100%;" data-code="84">
+                            <div class="coupons__card" style="display: flex; flex-direction: column; padding: 0;">
+                               <div class="coupons__header">
+                                <button class="zzimbtn js_zzimbtn" onclick="addToWishlist(84)">
+                                  <svg class="empty-heart" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                      <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path>
+                                  </svg>
+                                  <svg class="filled-heart" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                      <path d="M382-320 155-547l57-57 170 170 366-366 57 57-423 423ZM200-160v-80h560v80H200Z"></path>
+                                  </svg>
+                                  <span>쿠폰받기</span>
+                                </button>
+                                <div style="display: flex; align-items: center; margin-left: auto; padding: 3px 10px; border-radius: 60px;">
+                                  <span style="color: rgb(100 116 139); letter-spacing: -1px; line-height: 1; " onclick="detailView(84)">상세보기</span>
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="rgb(100 116 139)">
+                                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"></path>
+                                  </svg>
+                                </div>
+                              </div>
+                              <div style="display: flex; padding: 7px;" onclick="detailView(84)">
+                                <div class="coupons__imgbox">
+                                    
+                                        
+                                            <img src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/20171120/2/image-0051.jpg" data-code="84">
+                                            <input type="hidden" class="igfCode" value="0">
+                                        
+                                        
+                                    
+                                </div>
+                                <div class="coupons__info" style="position: relative; display: flex; flex-direction: column;">
+                                  <span class="coupons__price"><em class="discount__price">300</em>원 할인</span>
+                                  <input type="hidden" class="coupons__unit" value="1">
+                                  <input type="hidden" class="coupons__type" value="0">
+                                  <input type="hidden" class="coupons__totalCount" value="">
+                                  <input type="hidden" class="coupons__maxUseCount" value="">
+                                  <span class="coupons__name">동원]양반참치죽</span>
+                                  
+                                       
+                                           <span class="coupons__barcode" style="display:none;">8801047161585</span>	
+                                           <span class="coupons__barcode__88">8801047 161585</span>
+                                       
+                                         
+                                                                                       
+                                  <span class="coupons__date">
+                                    <input class="coupons__expire" type="hidden" value="2024-07-18T00:00">
+                                      2024.07.08
+                                      ~
+                                      07.18
+                                      
+                                          
+                                          
+                                              (8일 남음)
+                                          
+                                      
+                                  </span>
+                                  <input type="hidden" class="product__name" value="동원]양반참치죽">
+                                  <input type="hidden" class="product__barcode" value="8801047161585">
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                       
+                           <li style="width: 100%;" data-code="83">
+                            <div class="coupons__card" style="display: flex; flex-direction: column; padding: 0;">
+                               <div class="coupons__header">
+                                <button class="zzimbtn js_zzimbtn" onclick="addToWishlist(83)">
+                                  <svg class="empty-heart" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                      <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path>
+                                  </svg>
+                                  <svg class="filled-heart" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                      <path d="M382-320 155-547l57-57 170 170 366-366 57 57-423 423ZM200-160v-80h560v80H200Z"></path>
+                                  </svg>
+                                  <span>쿠폰받기</span>
+                                </button>
+                                <div style="display: flex; align-items: center; margin-left: auto; padding: 3px 10px; border-radius: 60px;">
+                                  <span style="color: rgb(100 116 139); letter-spacing: -1px; line-height: 1; " onclick="detailView(83)">상세보기</span>
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="rgb(100 116 139)">
+                                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"></path>
+                                  </svg>
+                                </div>
+                              </div>
+                              <div style="display: flex; padding: 7px;" onclick="detailView(83)">
+                                <div class="coupons__imgbox">
+                                    
+                                        
+                                            <img src="https://s3.ap-northeast-2.amazonaws.com/products.key/main/동원_양반-전복죽-287.5g_8801047161578_1.png" data-code="83">
+                                            <input type="hidden" class="igfCode" value="0">
+                                        
+                                        
+                                    
+                                </div>
+                                <div class="coupons__info" style="position: relative; display: flex; flex-direction: column;">
+                                  <span class="coupons__price"><em class="discount__price">10</em>% 할인</span>
+                                  <input type="hidden" class="coupons__unit" value="1">
+                                  <input type="hidden" class="coupons__type" value="1">
+                                  <input type="hidden" class="coupons__totalCount" value="">
+                                  <input type="hidden" class="coupons__maxUseCount" value="">
+                                  <span class="coupons__name">동원]양반전복죽</span>
+                                  
+                                       
+                                           <span class="coupons__barcode" style="display:none;">8801047161578</span>	
+                                           <span class="coupons__barcode__88">8801047 161578</span>
+                                       
+                                         
+                                                                                       
+                                  <span class="coupons__date">
+                                    <input class="coupons__expire" type="hidden" value="2024-07-17T00:00">
+                                      2024.07.07
+                                      ~
+                                      07.17
+                                      
+                                          
+                                          
+                                              (7일 남음)
+                                          
+                                      
+                                  </span>
+                                  <input type="hidden" class="product__name" value="동원]양반전복죽">
+                                  <input type="hidden" class="product__barcode" value="8801047161578">
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                       
+                           <li style="width: 100%;" data-code="85">
+                            <div class="coupons__card" style="display: flex; flex-direction: column; padding: 0;">
+                               <div class="coupons__header">
+                                <button class="zzimbtn js_zzimbtn" onclick="addToWishlist(85)">
+                                  <svg class="empty-heart" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                      <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path>
+                                  </svg>
+                                  <svg class="filled-heart" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                      <path d="M382-320 155-547l57-57 170 170 366-366 57 57-423 423ZM200-160v-80h560v80H200Z"></path>
+                                  </svg>
+                                  <span>쿠폰받기</span>
+                                </button>
+                                <div style="display: flex; align-items: center; margin-left: auto; padding: 3px 10px; border-radius: 60px;">
+                                  <span style="color: rgb(100 116 139); letter-spacing: -1px; line-height: 1; " onclick="detailView(85)">상세보기</span>
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="rgb(100 116 139)">
+                                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"></path>
+                                  </svg>
+                                </div>
+                              </div>
+                              <div style="display: flex; padding: 7px;" onclick="detailView(85)">
+                                <div class="coupons__imgbox">
+                                    
+                                        
+                                            <img src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/20180327_win/8801045522265_진라면_매운맛.png" data-code="85">
+                                            <input type="hidden" class="igfCode" value="0">
+                                        
+                                        
+                                    
+                                </div>
+                                <div class="coupons__info" style="position: relative; display: flex; flex-direction: column;">
+                                  <span class="coupons__price"><em class="discount__price">200</em>원 할인</span>
+                                  <input type="hidden" class="coupons__unit" value="1">
+                                  <input type="hidden" class="coupons__type" value="0">
+                                  <input type="hidden" class="coupons__totalCount" value="">
+                                  <input type="hidden" class="coupons__maxUseCount" value="">
+                                  <span class="coupons__name">오뚜기)진라면 매운맛 멀티</span>
+                                  
+                                       
+                                           <span class="coupons__barcode" style="display:none;">8801045522265</span>	
+                                           <span class="coupons__barcode__88">8801045 522265</span>
+                                       
+                                         
+                                                                                       
+                                  <span class="coupons__date">
+                                    <input class="coupons__expire" type="hidden" value="2024-07-19T00:00">
+                                      2024.07.09
+                                      ~
+                                      07.19
+                                      
+                                          
+                                          
+                                              (9일 남음)
+                                          
+                                      
+                                  </span>
+                                  <input type="hidden" class="product__name" value="오뚜기)진라면 매운맛 멀티">
+                                  <input type="hidden" class="product__barcode" value="8801045522265">
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                       
+                           <li style="width: 100%;" data-code="105">
+                            <div class="coupons__card" style="display: flex; flex-direction: column; padding: 0;">
+                               <div class="coupons__header">
+                                <button class="zzimbtn js_zzimbtn" onclick="addToWishlist(105)">
+                                  <svg class="empty-heart" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                      <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path>
+                                  </svg>
+                                  <svg class="filled-heart" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                      <path d="M382-320 155-547l57-57 170 170 366-366 57 57-423 423ZM200-160v-80h560v80H200Z"></path>
+                                  </svg>
+                                  <span>쿠폰받기</span>
+                                </button>
+                                <div style="display: flex; align-items: center; margin-left: auto; padding: 3px 10px; border-radius: 60px;">
+                                  <span style="color: rgb(100 116 139); letter-spacing: -1px; line-height: 1; " onclick="detailView(105)">상세보기</span>
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="rgb(100 116 139)">
+                                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"></path>
+                                  </svg>
+                                </div>
+                              </div>
+                              <div style="display: flex; padding: 7px;" onclick="detailView(105)">
+                                <div class="coupons__imgbox">
+                                    
+                                        
+                                            <img src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/2018/08/08/9692/1533706156620.jpg" data-code="105">
+                                            <input type="hidden" class="igfCode" value="0">
+                                        
+                                        
+                                    
+                                </div>
+                                <div class="coupons__info" style="position: relative; display: flex; flex-direction: column;">
+                                  <span class="coupons__price"><em class="discount__price">20</em>% 할인</span>
+                                  <input type="hidden" class="coupons__unit" value="1">
+                                  <input type="hidden" class="coupons__type" value="1">
+                                  <input type="hidden" class="coupons__totalCount" value="100">
+                                  <input type="hidden" class="coupons__maxUseCount" value="1">
+                                  <span class="coupons__name">팔도만능비빔장</span>
+                                  
+                                       
+                                           <span class="coupons__barcode" style="display:none;">8809296884118</span>	
+                                           <span class="coupons__barcode__88">8809296 884118</span>
+                                       
+                                         
+                                                                                       
+                                  <span class="coupons__date">
+                                    <input class="coupons__expire" type="hidden" value="2024-07-20T00:00">
+                                      2024.07.10
+                                      ~
+                                      07.20
+                                      
+                                          
+                                          
+                                              (10일 남음)
+                                          
+                                      
+                                  </span>
+                                  <input type="hidden" class="product__name" value="팔도만능비빔장">
+                                  <input type="hidden" class="product__barcode" value="8809296884118">
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                       
+                           <li style="width: 100%;" data-code="86">
+                            <div class="coupons__card" style="display: flex; flex-direction: column; padding: 0;">
+                               <div class="coupons__header">
+                                <button class="zzimbtn js_zzimbtn" onclick="addToWishlist(86)">
+                                  <svg class="empty-heart" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                      <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path>
+                                  </svg>
+                                  <svg class="filled-heart" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                      <path d="M382-320 155-547l57-57 170 170 366-366 57 57-423 423ZM200-160v-80h560v80H200Z"></path>
+                                  </svg>
+                                  <span>쿠폰받기</span>
+                                </button>
+                                <div style="display: flex; align-items: center; margin-left: auto; padding: 3px 10px; border-radius: 60px;">
+                                  <span style="color: rgb(100 116 139); letter-spacing: -1px; line-height: 1; " onclick="detailView(86)">상세보기</span>
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="rgb(100 116 139)">
+                                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"></path>
+                                  </svg>
+                                </div>
+                              </div>
+                              <div style="display: flex; padding: 7px;" onclick="detailView(86)">
+                                <div class="coupons__imgbox">
+                                    
+                                        
+                                            <img src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/2018/08/08/9692/1533706156620.jpg" data-code="86">
+                                            <input type="hidden" class="igfCode" value="0">
+                                        
+                                        
+                                    
+                                </div>
+                                <div class="coupons__info" style="position: relative; display: flex; flex-direction: column;">
+                                  <span class="coupons__price"><em class="discount__price">100</em>원 할인</span>
+                                  <input type="hidden" class="coupons__unit" value="1">
+                                  <input type="hidden" class="coupons__type" value="0">
+                                  <input type="hidden" class="coupons__totalCount" value="">
+                                  <input type="hidden" class="coupons__maxUseCount" value="">
+                                  <span class="coupons__name">팔도만능비빔장</span>
+                                  
+                                       
+                                           <span class="coupons__barcode" style="display:none;">8809296884118</span>	
+                                           <span class="coupons__barcode__88">8809296 884118</span>
+                                       
+                                         
+                                                                                       
+                                  <span class="coupons__date">
+                                    <input class="coupons__expire" type="hidden" value="2024-07-20T00:00">
+                                      2024.07.10
+                                      ~
+                                      07.20
+                                      
+                                          
+                                          
+                                              (10일 남음)
+                                          
+                                      
+                                  </span>
+                                  <input type="hidden" class="product__name" value="팔도만능비빔장">
+                                  <input type="hidden" class="product__barcode" value="8809296884118">
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                       
+                           <li style="width: 100%;" data-code="55">
+                            <div class="coupons__card" style="display: flex; flex-direction: column; padding: 0;">
+                               <div class="coupons__header">
+                                <button class="zzimbtn js_zzimbtn" onclick="addToWishlist(55)">
+                                  <svg class="empty-heart" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                      <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path>
+                                  </svg>
+                                  <svg class="filled-heart" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                      <path d="M382-320 155-547l57-57 170 170 366-366 57 57-423 423ZM200-160v-80h560v80H200Z"></path>
+                                  </svg>
+                                  <span>쿠폰받기</span>
+                                </button>
+                                <div style="display: flex; align-items: center; margin-left: auto; padding: 3px 10px; border-radius: 60px;">
+                                  <span style="color: rgb(100 116 139); letter-spacing: -1px; line-height: 1; " onclick="detailView(55)">상세보기</span>
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="rgb(100 116 139)">
+                                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"></path>
+                                  </svg>
+                                </div>
+                              </div>
+                              <div style="display: flex; padding: 7px;" onclick="detailView(55)">
+                                <div class="coupons__imgbox">
+                                    
+                                        
+                                            <img src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/korail/ki_sa1494987672101.jpg" data-code="55">
+                                            <input type="hidden" class="igfCode" value="0">
+                                        
+                                        
+                                    
+                                </div>
+                                <div class="coupons__info" style="position: relative; display: flex; flex-direction: column;">
+                                  <span class="coupons__price"><em class="discount__price">100</em>원 할인</span>
+                                  <input type="hidden" class="coupons__unit" value="1">
+                                  <input type="hidden" class="coupons__type" value="0">
+                                  <input type="hidden" class="coupons__totalCount" value="100">
+                                  <input type="hidden" class="coupons__maxUseCount" value="1">
+                                  <span class="coupons__name">비락식혜</span>
+                                  
+                                       
+                                           <span class="coupons__barcode" style="display:none;">8801128900201</span>	
+                                           <span class="coupons__barcode__88">8801128 900201</span>
+                                       
+                                         
+                                                                                       
+                                  <span class="coupons__date">
+                                    <input class="coupons__expire" type="hidden" value="2024-07-18T00:00">
+                                      2024.07.01
+                                      ~
+                                      07.18
+                                      
+                                          
+                                          
+                                              (8일 남음)
+                                          
+                                      
+                                  </span>
+                                  <input type="hidden" class="product__name" value="비락식혜">
+                                  <input type="hidden" class="product__barcode" value="8801128900201">
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                       
+                   </ul>
+                
+                
+            
+            <!-- 사용 예정 쿠폰 -->
+            
+                
+                  <br>
+                  <span class="panel__tit">발급 예정 쿠폰</span>
+                  <ul class="coupons__list">
+                      
+                     <li style="width: 100%;" data-code="87">
+                       <div class="coupons__card">
+                         <div class="coupons__header">
+                           <button class="zzimbtn js_zzimbtn" onclick="addToWishlist(87)">
+                             <svg class="empty-heart" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                  <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path>
+                              </svg>
+                             <span>쿠폰받기</span>
+                           </button>
+                           <a href="#" class="coupons__link">
+                             <span>상세보기</span>
+                             <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 -960 960 960" fill="rgb(100 116 139)">
+                               <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"></path>
+                               </svg>
+                           </a>
+                         </div>
+                         <div class="coupons__body" style="display: flex; padding: 7px;">
+                           <div class="coupons__imgbox">
+                                   
+                                    
+                                        <img src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/2018/04/06/9070/1523000882342.jpg" data-code="87">
+                                        <input type="hidden" class="igfCode" value="0">
+                                    
+                                    
+                                
+                           </div>
+                           <div class="coupons__info">
+                             <span class="coupons__price"><em class="discount__price">20</em>원 할인</span>
+                             <input type="hidden" class="coupons__type" value="0">
+                             <span class="coupons__name">비락식혜</span>
+                             
+                                 
+                                    <span class="coupons__barcode" style="display:none;">8801128900201</span>	
+                                    <span class="coupons__barcode__88">8801128 900201</span>
+                                
+                                  
+                                                                             
+                             <span class="coupons__date">
+                                    2024.07.11
+                                    ~
+                                    07.24
+                                    
+                                          
+                                          
+                                              (14일 남음)
+                                          
+                                      
+                                </span>
+                           </div>
+                         </div>
+                         <!-- dark background -->
+                         <div class="coupons__darkbg">
+                           <p>
+                               <span>
+                                   2024.07.11
+                               </span>
+                                부터 사용가능
+                              </p>
+                         </div>
+                       </div>
+                     </li>
+                      
+                     <li style="width: 100%;" data-code="106">
+                       <div class="coupons__card">
+                         <div class="coupons__header">
+                           <button class="zzimbtn js_zzimbtn" onclick="addToWishlist(106)">
+                             <svg class="empty-heart" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                  <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path>
+                              </svg>
+                             <span>쿠폰받기</span>
+                           </button>
+                           <a href="#" class="coupons__link">
+                             <span>상세보기</span>
+                             <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 -960 960 960" fill="rgb(100 116 139)">
+                               <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"></path>
+                               </svg>
+                           </a>
+                         </div>
+                         <div class="coupons__body" style="display: flex; padding: 7px;">
+                           <div class="coupons__imgbox">
+                                   
+                                    
+                                        <img src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/2018/04/06/4388/1523000824187.jpg" data-code="106">
+                                        <input type="hidden" class="igfCode" value="0">
+                                    
+                                    
+                                
+                           </div>
+                           <div class="coupons__info">
+                             <span class="coupons__price"><em class="discount__price">100</em>원 할인</span>
+                             <input type="hidden" class="coupons__type" value="0">
+                             <span class="coupons__name">비락식혜</span>
+                             
+                                 
+                                    <span class="coupons__barcode" style="display:none;">8801128900201</span>	
+                                    <span class="coupons__barcode__88">8801128 900201</span>
+                                
+                                  
+                                                                             
+                             <span class="coupons__date">
+                                    2024.07.20
+                                    ~
+                                    07.30
+                                    
+                                          
+                                          
+                                              (20일 남음)
+                                          
+                                      
+                                </span>
+                           </div>
+                         </div>
+                         <!-- dark background -->
+                         <div class="coupons__darkbg">
+                           <p>
+                               <span>
+                                   2024.07.20
+                               </span>
+                                부터 사용가능
+                              </p>
+                         </div>
+                       </div>
+                     </li>
+                      
+                     <li style="width: 100%;" data-code="88">
+                       <div class="coupons__card">
+                         <div class="coupons__header">
+                           <button class="zzimbtn js_zzimbtn" onclick="addToWishlist(88)">
+                             <svg class="empty-heart" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                  <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path>
+                              </svg>
+                             <span>쿠폰받기</span>
+                           </button>
+                           <a href="#" class="coupons__link">
+                             <span>상세보기</span>
+                             <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 -960 960 960" fill="rgb(100 116 139)">
+                               <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"></path>
+                               </svg>
+                           </a>
+                         </div>
+                         <div class="coupons__body" style="display: flex; padding: 7px;">
+                           <div class="coupons__imgbox">
+                                   
+                                    
+                                    
+                                        <img src="/2ms/img/no_image_coupon.png">
+                                    
+                                
+                           </div>
+                           <div class="coupons__info">
+                             <span class="coupons__price"><em class="discount__price">100</em>원 할인</span>
+                             <input type="hidden" class="coupons__type" value="0">
+                             <span class="coupons__name">삼]찰옥수수식빵</span>
+                             
+                                 
+                                    <span class="coupons__barcode" style="display:none;">8801068015607</span>	
+                                    <span class="coupons__barcode__88">8801068 015607</span>
+                                
+                                  
+                                                                             
+                             <span class="coupons__date">
+                                    2024.07.12
+                                    ~
+                                    07.28
+                                    
+                                          
+                                          
+                                              (18일 남음)
+                                          
+                                      
+                                </span>
+                           </div>
+                         </div>
+                         <!-- dark background -->
+                         <div class="coupons__darkbg">
+                           <p>
+                               <span>
+                                   2024.07.12
+                               </span>
+                                부터 사용가능
+                              </p>
+                         </div>
+                       </div>
+                     </li>
+                      
+                  </ul>
+                
+                
+               
+            <div class="wrap_stickyfooter" style="padding: 6px 2px;">
+                <a class="scroll_top btn_movetop">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#fff"><path d="M160-760v-80h640v80H160Zm280 640v-408L336-424l-56-56 200-200 200 200-56 56-104-104v408h-80Z"></path></svg>					
+                    <span>맨위로</span>
+                </a>
+                <div class="btn_couponusebox">
+                    <a class="btn_couponuse" onclick="useWishList()">
+                    <!-- 
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" fill="#fff" version="1.1" id="레이어_1" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24; margin-right: 2px;" xml:space="preserve">
+                            <path d="M12,21l-1.45-1.3c-1.683-1.517-3.075-2.825-4.175-3.925S4.4,13.688,3.75,12.812  S2.646,11.133,2.388,10.4S2,8.917,2,8.15c0-1.567,0.525-2.875,1.575-3.925S5.933,2.65,7.5,2.65c0.867,0,1.692,0.183,2.475,0.55  S11.433,4.083,12,4.75c0.567-0.667,1.242-1.183,2.025-1.55s1.608-0.55,2.475-0.55c1.567,0,2.875,0.525,3.925,1.575  C21.475,5.275,22,6.583,22,8.15c0,0.767-0.129,1.517-0.387,2.25c-0.258,0.733-0.713,1.538-1.363,2.413s-1.525,1.863-2.625,2.962  s-2.492,2.408-4.175,3.925L12,21z"/>
+                        </svg>
+                     -->
+                        받은 쿠폰 사용하기
+                    </a>
+                </div>
+            </div>
+                
+             <!-- 모달 팝업 -->
+             <div class="modalbox" style="display:none; ">
+               <div class="modalbox__bg"></div>
+               <div class="modalbox__panel detailView" style="display:none;">
+                 <a class="modalbox__close" id="refreshButton">
+                   <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#666"><path d="m256-236-20-20 224-224-224-224 20-20 224 224 224-224 20 20-224 224 224 224-20 20-224-224-224 224Z"></path></svg>
+                 </a>
+                 <p class="modalbox__tit">쿠폰 상세보기</p>
+                 <dl class="modalbox__dl">
+                   <dt>쿠폰상품</dt>
+                   <dd class="product__name"></dd>
+                   <dd class="product__barcode"></dd>
+                 </dl>
+                 <dl class="modalbox__dl">
+                   <dt>사용조건</dt>
+                   <dd>
+                     상품 <span class="coupons__unit">1</span>개마다 <span style="color: rgb(244, 63, 94);"><span style="font-weight: 600;font-size: 28px;" class="coupons__price"></span><span class="coupons__type"></span> 할인</span><br>
+                     <span class="coupons__option"></span>
+                   </dd>
+                 </dl>
+                 <dl class="modalbox__dl">
+                   <dt>사용기간</dt>
+                   <dd>
+                           <span class="coupons__date" style="color:#495057"></span>
+                          <span class="coupons__deadline" style="color:red;"></span>
+                   </dd>
+                 </dl>
+                 <div class="modalbox__group">
+                 <!-- 
+                   <a class="modalbox__zzimbtn">
+                     <svg class="empty-heart" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+                         <path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                     </svg>
+                     <svg class="filled-heart" style="width: 18px; height: 18px; margin-right: 2px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="레이어_1" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+                         <path d="M12,21l-1.45-1.3c-1.683-1.517-3.075-2.825-4.175-3.925S4.4,13.688,3.75,12.812  S2.646,11.133,2.388,10.4S2,8.917,2,8.15c0-1.567,0.525-2.875,1.575-3.925S5.933,2.65,7.5,2.65c0.867,0,1.692,0.183,2.475,0.55  S11.433,4.083,12,4.75c0.567-0.667,1.242-1.183,2.025-1.55s1.608-0.55,2.475-0.55c1.567,0,2.875,0.525,3.925,1.575  C21.475,5.275,22,6.583,22,8.15c0,0.767-0.129,1.517-0.387,2.25c-0.258,0.733-0.713,1.538-1.363,2.413s-1.525,1.863-2.625,2.962  s-2.492,2.408-4.175,3.925L12,21z"/>
+                     </svg>
+                     <span>찜하기</span>
+                   </a>&nbsp;
+                 -->
+                   <a href="#" class="modalbox__btn">쿠폰 사용하기</a>
+                 </div>
+               </div>
+               <div id="toast" class="toast"></div>
+               <br>
+               <div class="modalbox__panel useCoupon" style="display:none;">
+                 <a class="modalbox__close">
+                   <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#666"><path d="m256-236-20-20 224-224-224-224 20-20 224 224 224-224 20 20-224 224 224 224-20 20-224-224-224 224Z"></path></svg>
+                 </a>
+                 <p class="modalbox__tit">받은 쿠폰 사용하기</p>
+                 <div style="display: flex;">
+                   <span>바코드 유효시간 <span id="expiryTime"></span></span>
+                   <span style="margin-left: auto;">다운받은 쿠폰: <span class="wishListLength">02</span> 개</span>
+                 </div>
+                 <div style="margin: 10px 0;" class="barcode-container">
+                   <svg id="barcode" style="width:300px"></svg>
+                   <a class="btn_comm btn_comm--blue" id="refreshBarcode" style="width: 100%; text-align: center; padding: 6px; font-size: 14px; font-weight: 600; display:block;">쿠폰 바코드 새로고침</a>
+                 </div>
+                 <div class="coupons">
+                   <ul class="coupons__list useCouponView">
+                   </ul>
+                 </div>
+                 <!--
+                 <div>
+                   <span>찜한 쿠폰이 없습니다.<br /> 먼저 쿠폰 찜 후 이용해주세요</span>
+                 </div> 
+                  -->
+                 <div class="modalbox__guide">
+                   <p>쿠폰사용안내</p>
+                   <ul>
+                     <li>계산대 직원에게 바코드를 보여주세요.</li>
+                     <li>대표바코드를 제시하면, 찜한쿠폰 전체 사용이 가능합니다.</li>
+                     <li>사용기간 만료 후, 교환/환불로 인한 재결제 시 쿠폰 적용이 어렵습니다.</li>
+                   </ul>
+                 </div>
+               </div>
+             </div>
+           </div>
+          <input type="hidden" id="hdImageHubUrl" value="">
+             <input type="hidden" id="hdReturnUrl" value="/2ms/imagehub/res.do">
+             <input type="hidden" id="switchValue" value="">
+          <script>
+              // 페이지로드시
+              $(document).ready(function () {
+                   var wishlistArray = getWishlistArray();
+                  
+                   for (const cpCode of wishlistArray) {
+                      var $item = $("#js_changeList");
+                      var $targetItem = $item.find("[data-code='" + cpCode + "']").find(".js_zzimbtn");
+                      if ($targetItem.length) {
+                          $targetItem.addClass("active"); // active 클래스 추가
+                          $targetItem.closest(".coupons__card").css("border", "2px solid #f43f5e");
+                          $targetItem.children("span").text("받기완료");
+                      }
+                  }
+                   
+                   $('#refreshButton').click(function() {
+                     refreshElement('#js_changeList');
+                 });
+                   
+                  cleanUpWishlist();
+                   
+                 var i = $(".js_fontsize").text().length;
+                 if (i < 11) {
+                     $(".js_fontsize").css("font-size", "1.9em")
+                 } else if (i >= 11, i < 13) {
+                     $(".js_fontsize").css("font-size", "1.6em")
+                 } else if (i >= 13, i < 15) {
+                     $(".js_fontsize").css("font-size", "1.4em")
+                 } else if (i >= 15, i < 17) {
+                     $(".js_fontsize").css("font-size", "1.2em")
+                 } else if (i >= 17, i < 19) {
+                     $(".js_fontsize").css("font-size", "1em")
+                 } else if (i >= 19) {
+                     $(".js_fontsize").css("font-size", "0.98em")
+                 }
+                 
+                 /* 쿠폰 노출 여부 확인
+                 if("" == 0){
+                     $(".modalbox").css("display", "");
+                     $(".modalbox__info").css("display", "");
+                    }
+                 */
+    
+              })
+              
+              function refreshElement() {
+                var element = $("#js_changeList");
+                var content = element.html(); // 현재 내용을 저장
+                element.empty(); // 요소를 비움
+                element.html(content); // 저장한 내용을 다시 추가
+            }
+                
+            // 쿠폰 상세보기
+            function detailView(cpCode){
+                
+                var wishlistArray = getWishlistArray();
+                
+                 // 중복 체크 후 추가
+                if (!wishlistArray.includes(cpCode.toString())) { // 찜목록에 없음
+                    //$(".modalbox__btn").text("찜하기 + 사용하기");
+                    //$(".modalbox__zzimbtn span").text("찜하기");
+                    //$(".modalbox__zzimbtn").removeClass("active");
+                }else{// 찜목록에 있음
+                    //$(".modalbox__btn").text("사용하기");
+                    $(".modalbox__btn").attr("onclick", "useWishList(1)");
+                    //$(".modalbox__zzimbtn span").text("찜해제");
+                    //$(".modalbox__zzimbtn").addClass("active");
+                }
+                
+                var $item = $("[data-code='" + cpCode + "']");
+                var cpPrice = $item.find(".coupons__price em").text();
+                var cpBarcode = $item.find(".coupons__barcode").text();
+                var cpBarcode88 = $item.find(".coupons__barcode__88").text();
+                if(cpBarcode88.length > 0){
+                    cpBarcode = cpBarcode88;
+                }
+                var cppName = $item.find(".product__name").val();
+                var cpUnit = $item.find(".coupons__unit").val();
+                var cpType = $item.find(".coupons__type").val();
+                var cpDate = $item.find(".coupons__date").text().trim().replace("기간 : ", "");
+                var cpDeadline = "";
+                if (cpDate.includes("(오늘마감)")) {
+                    // '(오늘마감)' 문자열을 기준으로 분리
+                    var parts = cpDate.split("(오늘마감)");
+                    // 분리된 부분 중 앞쪽 부분만 결과로 설정
+                    cpDate = parts[0].trim();
+                    cpDeadline = "(오늘마감)";
+                }
+                var cpMax = $item.find(".coupons__maxUseCount").val();
+                var cpTotal = $item.find(".coupons__totalCount").val();
+                
+                // 상세보기 부분
+                var $item2 =$(".detailView");
+                $item2.find(".coupons__price").text(cpPrice);
+                $item2.find(".coupons__type").text(cpType==0?'원':'%');
+                $item2.find(".coupons__unit").text(cpUnit);
+                $item2.find(".product__name").text(cppName); //상품명
+                $item2.find(".product__barcode").text(cpBarcode);//상품바코드
+                $item2.find(".coupons__date").text(cpDate);
+                $item2.find(".coupons__deadline").text(cpDeadline);
+                // 옵션사항 텍스트 조립
+                var option = '';
+                if(cpMax > 0){
+                    option = "쿠폰 1매당 " + cpMax + "개까지 사용";
+                    if(cpTotal > 0){
+                        option += ", " + cpTotal + "개 한정";
+                    }
+                }else if(cpTotal > 0){
+                    option = cpTotal + "개 한정";
+                }
+                // option에 괄호 붙이기
+                if(option != ""){
+                    option = "(" + option + ")";
+                }
+                $item2.find(".coupons__option").text(option);
+                
+                //$item2.find(".modalbox__zzimbtn").attr("onclick", "addToWishlist(" + cpCode + ")");
+                if (!wishlistArray.includes(cpCode.toString())){ // 찜목록에 없을 경우에만
+                    $item2.find(".modalbox__btn").attr("onclick", "addToWishlist(" + cpCode + ", 1)");			
+                }
+                $(".modalbox").css("display", "");
+                $item2.css("display", "");
+            }
+            
+            // 모달 닫기
+            document.querySelectorAll('.modalbox__close').forEach(button => {
+                button.addEventListener('click', () => {
+                    $(".detailView").css("display", "none");
+                    $(".modalbox").css("display", "none");
+                    $(".useCoupon").css("display", "none");
+                })
+            })
+            
+            // 쿠키 가져와서 배열에 담기
+            function getCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+            // 쿠폰받기
+            function addToWishlist(cpCode, usenum) {
+                var wishlistArray = getWishlistArray();
+                var $item = $("#js_changeList");
+                
+                // 중복 체크 후 추가
+                if (!wishlistArray.includes(cpCode.toString())) {
+                    /*
+                    if(wishlistArray.length >= 10){
+                        showToast('쿠폰 찜하기는 10개까지 가능합니다.');
+                    }else{
+                    */
+                        wishlistArray.push(cpCode.toString());
+                        //showToast('쿠폰 찜하기는 24시간 동안 유효합니다.');
+                        //$(".modalbox__zzimbtn span").text("찜해제");
+                        //$(".modalbox__zzimbtn").addClass("active");
+                        //$(".modalbox__btn").text("사용하기");
+                        $(".modalbox__btn").attr("onclick", "useWishList(1)");
+                        var $targetItem = $item.find("[data-code='" + cpCode + "']").find(".js_zzimbtn");
+                          if ($targetItem.length) {
+                              $targetItem.addClass("active"); // active 클래스 추가
+                              $targetItem.children("span").text("받기완료");
+                              $targetItem.attr("onclick", "");
+                          }
+                        $item.find("[data-code='" + cpCode + "']").find(".coupons__card").css("border", "2px solid #f43f5e");
+                            if(usenum == 1){
+                              $(".detailView").css("display", "none");
+                            $(".modalbox").css("display", "none");
+                            $(".useCoupon").css("display", "none");
+                            setTimeout(function() {
+                                useWishList();
+                            }, 0);
+                          }
+                    //}
+                }
+                /*
+                else{
+                    // 중복된 cpCode 제거
+                    wishlistArray = wishlistArray.filter(function(item) {
+                        return item !== cpCode.toString();
+                    });
+                    var $targetItem = $item.find("[data-code='" + cpCode + "']").find(".js_zzimbtn");
+                      if ($targetItem.length) {
+                          $targetItem.removeClass("active"); // active 클래스 추가
+                      }
+                      $item.find("[data-code='" + cpCode + "']").find(".coupons__card").css("border", "");
+                        showToast('쿠폰받기가 취소되었습니다.');
+                        
+                        $(".modalbox__zzimbtn span").text("찜하기");
+                        $(".modalbox__btn").text("찜하기 + 사용하기");
+                      $(".modalbox__btn").attr("onclick", "addToWishlist(" + cpCode + ", 1)");
+                      $(".modalbox__zzimbtn").removeClass("active");
+                }
+                */
+                document.cookie = "wishlist_coupon_" + "101141" + "=" + wishlistArray.join(',') + "; max-age=" + getMaxExpiryDate(wishlistArray) + "; path=/";
+                
+                   // 0개일 경우 쿠키 삭제
+                   if(getWishlistArray().length == 0){
+                       document.cookie = "wishlist_coupon_" + "101141" + "=; max-age=0; path=/";
+                   }
+            }
+            
+            // 찜한 쿠폰 사용하기
+            function useWishList(detailView) {//detailView에서 들어온건지 여부
+                if(detailView == 1){
+                    $(".detailView").hide();
+                }
+                var wishlistArray = getWishlistArray();
+                if (wishlistArray.length === 0) {
+                    showToast('다운받은 쿠폰이 없습니다. 쿠폰을 다운받은 후 사용해주세요.');
+                    $(".detailView").css("display", "none");
+                    $(".modalbox").css("display", "none");
+                    $(".useCoupon").css("display", "none");
+                    return;
+                }else{
+                    var lengthText = wishlistArray.length.toString().padStart(2, '0');
+                    $(".wishListLength").text(lengthText);
+                    
+                       var $item2 =$(".useCouponView");
+                       $item2.html('');  // 기존 내용을 비우기 위해 초기화
+                    for (const cpCode of wishlistArray) {
+                        var $item = $("[data-code='" + cpCode + "']");
+                        var cpPrice = $item.find(".coupons__price em").text();
+                        var cpName = $item.find(".coupons__name").text();
+                        var cpBarcode = $item.find(".coupons__barcode").text();
+                        var cpBarcode88 = $item.find(".coupons__barcode__88").text();
+                        if(cpBarcode88.length > 0){
+                            cpBarcode = cpBarcode88;
+                        }
+                        var cpDate = $item.find(".coupons__date").text().trim();
+                        var cpImg = $item.find(".coupons__imgbox img").attr("src");
+                        var cpUnit = $item.find(".coupons__unit").val();
+                        var cpType = $item.find(".coupons__type").val();
+                        
+                           var html = '<li style="width: 100%;">'
+                            html += '<div class="coupons__card">'
+                                html += '<div class="coupons__body" style="display: flex; padding: 7px;">'
+                                    html += '<div class="coupons__imgbox">'
+                                        html += '<img src="' + cpImg +'"/>'
+                                    html += '</div>'
+                                    html += '<div class="coupons__info">'
+                                        html += '<span class="coupons__price"><em class="discount__price">' + cpPrice + '</em>' + (cpType==0?'원':'%') + ' 할인</span>'
+                                        html += '<span class="coupons__name">' + cpName + '</span>'
+                                        html += '<span class="coupons__barcode">' + cpBarcode + '</span>'
+                                          html += '<span class="coupons__date" style="color:#495057; font-size:13px">' + cpDate + '</span>'
+                                      html += '</div>'
+                                  html += '</div>'
+                             html += '</div>'
+                             html += '</li>';
+                            
+                           $item2.append(html);
+                    }
+                }
+                initializeLayer(wishlistArray);
+            }
+            
+            // 바코드 새로고침
+            function newBarcode(wishlistArray) {
+                // 임의의 11자리 숫자 생성 -> ajax로 받아오도록 수정
+                //var randomBarcode = getRandomBarcode();
+                barcodeArray = wishlistArray.join(',');
+                $.ajax({
+                    url: "/2ms/coupon/ajax/barcode.json",
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(barcodeArray),
+                    success: function(response) {
+                        randomBarcode = response;
+                        
+                     // 바코드 이미지 생성
+                        JsBarcode("#barcode", randomBarcode, {
+                            format: "CODE128",
+                            width:2.5,
+                            height:50,
+                            displayValue: true,
+                            fontSize:18
+                        });
+                        
+                         // 생성된 SVG 텍스트에 자간 스타일 적용
+                        document.querySelectorAll('#barcode text').forEach(function (textElement) {
+                            textElement.style.letterSpacing = '5px'; // 자간을 2px로 설정
+                            textElement.style.fontWeight = 'bold';
+                        });
+                        
+                        $(".modalbox").css("display", "");
+                        $(".useCoupon").css("display", "");
+                        updateExpiryTime();
+                        $('#refreshBarcode').hide();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error: " + error);
+                    }
+                });
+            }
+            
+            var expiryTime;
+            
+            function updateExpiryTime() {
+                var now = new Date();
+                expiryTime = new Date(now.getTime() + 60 * 60 * 100); // 6분 -> 1시간 뒤로 변경해야함
+            }
+            
+            function checkExpiry() {
+                var now = new Date();
+                var remainingTime = expiryTime - now;
+                if (now >= expiryTime) {
+                    $('#barcode').hide();
+                    $('#barcode').empty();
+                    $('#expiryTime').hide();
+                    $('#refreshBarcode').show();
+                } else {
+                    $('#refreshBarcode').hide();
+                    var hours = Math.floor(remainingTime / (1000 * 60 * 60));
+                    var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+                    $('#expiryTime').text(
+                        String(minutes).padStart(2, '0') + ':' + 
+                        String(seconds).padStart(2, '0')
+                    );
+                    $('#expiryTime').show();
+                }
+            }
+            
+            function initializeLayer(wishlistArray) {
+                $('#refreshBarcode').click(function() {
+                    newBarcode(wishlistArray);
+                });
+                // 최초 바코드 생성
+                newBarcode(wishlistArray);
+                // 유효시간 체크 인터벌 설정
+                setInterval(checkExpiry, 1000); // 1초마다 체크
+            }
+            
+            // 토스트 팝업
+            function showToast(message) {
+                // 기존의 토스트가 있다면 제거
+                if ($("#toast").length) {
+                    $("#toast").remove();
+                }
+                
+                 // 새로운 토스트 생성
+                var toast = $('<div id="toast" class="toast">' + message + '</div>');
+                $(".modalbox").after(toast);
+                
+                var toast = document.getElementById("toast");
+                toast.textContent = message;
+                toast.className = "toast show";
+                setTimeout(function() {
+                    toast.className = toast.className.replace("show", "");
+                }, 2000);
+            }
+            
+            // 뒤로가기
+            function goBack() {
+                window.history.back();
+            }
+            
+             // 상단으로
+            $('.scroll_top').click(function(e) {
+                window.scrollTo({top:0, left:0, behavior: "smooth"});
+                
+            });
+             
+             // 쿠키 업데이트 함수
+            function updateWishlistCookie(wishlistArray) {
+                document.cookie = "wishlist_coupon_" + "101141" + "=" + wishlistArray.join(',') + "; expires=" + getMaxExpiryDate(wishlistArray) + "; path=/";
+            }
+             
+            // 쿠키에서 찜한 쿠폰 배열 가져오기
+            function getWishlistArray() {
+                var wishlist = getCookie("wishlist_coupon_" + '101141');
+                return wishlist ? wishlist.split(',') : [];
+            }
+            
+             //화면에 없는 쿠폰 제거
+             function cleanUpWishlist() {
+                var wishlistCookie = getCookie('wishlist_coupon_' + '101141');
+                if (!wishlistCookie) return;
+                
+                var couponList = wishlistCookie.split(',');
+                var validCouponList = [];
+                
+                $('#js_changeList>li').each(function() {
+                    var cpCode = $(this).attr("data-code");
+                    console.log(cpCode);
+                    if (couponList.includes(cpCode)) {
+                        validCouponList.push(cpCode);
+                    }
+                });
+                updateWishlistCookie(validCouponList);
+             }
+             
+             // 쿠키 유효일 설정
+            function getMaxExpiryDate() {
+                var maxDate = new Date(0);
+                
+                $('#js_changeList li').each(function() {
+                    var cpCode = $(this).attr("data-code");
+                    var expiryDate = new Date($(this).find(".coupons__expire").val());
+    
+                    if (expiryDate > maxDate) {
+                        maxDate = expiryDate;
+                    }
+                });
+                return maxDate.toUTCString();
+            }
+    
+            
+          </script>
+    
+    </body></html>
